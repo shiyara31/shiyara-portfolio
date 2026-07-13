@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio of Shiyara S - B.Tech Computer Science Engineering student specializing in IoT, Cybersecurity, and Blockchain Technology.">
+    <meta name="keywords" content="Shiyara S, Portfolio, Computer Science, Cybersecurity, IoT, Blockchain, Software Developer, Kerala, India">
+    <meta name="author" content="Shiyara S">
+    <title>Shiyara S | Cybersecurity, IoT & Blockchain Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+    <!-- Custom Loading Screen -->
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <div class="terminal-text">
+                <span class="prompt">$</span> <span class="typed-loader">shiyara --init</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="loader-status">SECURE CONNECTION ESTABLISHED...</div>
+        </div>
+    </div>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Scroll-to-Top Button -->
+    <button id="scroll-top" aria-label="Scroll to top" class="hidden">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-symbol">&lt;</span>Shiyara<span class="logo-accent">.S</span><span class="logo-symbol">/&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link active">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                    <li><a href="#github" class="nav-link">GitHub</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark/Light Mode" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container container">
+                <div class="hero-content">
+                    <div class="cyber-badge">
+                        <i class="fas fa-shield-halved"></i> Initializing Secure Interface
+                    </div>
+                    <h1 class="hero-title">Hi, I'm <span class="highlight">Shiyara S</span></h1>
+                    <h2 class="hero-subtitle">B.Tech Computer Science Engineering Student</h2>
+                    <p class="hero-typing-container">
+                        I specialize in <span id="typing-effect" class="highlight-alt"></span><span class="cursor">|</span>
+                    </p>
+                    <p class="hero-description">
+                        Cybersecurity <span class="divider">•</span> IoT <span class="divider">•</span> Blockchain <span class="divider">•</span> Web Development
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="assets/resume.pdf" download class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-code"></i> View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-paper-plane"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="profile-frame">
+                        <div class="scanner-line"></div>
+                        <img src="assets/profile.jpg" alt="Shiyara S Profile Photo" class="profile-img">
+                        <div class="corner-border top-left"></div>
+                        <div class="corner-border top-right"></div>
+                        <div class="corner-border bottom-left"></div>
+                        <div class="corner-border bottom-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down scroll-bounce"></i>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-title"><span class="number">01.</span> About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <div class="terminal-card">
+                            <div class="card-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="terminal-title">shiyara.sys</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="line-1"><span class="func">cat</span> profile_summary.txt</p>
+                                <p class="response">
+                                    "I am a passionate Computer Science Engineering student specializing in IoT, Cybersecurity, and Blockchain Technology. I enjoy developing secure applications, solving technical challenges, and continuously learning emerging technologies. I am seeking internship opportunities where I can apply my skills while gaining industry experience."
+                                </p>
+                                <p class="line-2"><span class="func">cat</span> career_goal.json</p>
+                                <p class="response json-text">
+                                    {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"career_goal"</span>: <span class="val">"Cybersecurity Analyst | Security Engineer | Software Developer"</span>,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"location"</span>: <span class="val">"Kerala, India"</span>,<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"academic_focus"</span>: <span class="val">"Emerging Secure Technologies & Embedded Systems"</span><br>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-cards">
+                        <div class="domain-card glass">
+                            <div class="domain-icon"><i class="fas fa-shield-virus"></i></div>
+                            <h3>Cybersecurity</h3>
+                            <p>Protecting networks, understanding ethical hacking, and implementing secure coding practices.</p>
+                        </div>
+                        <div class="domain-card glass">
+                            <div class="domain-icon"><i class="fas fa-microchip"></i></div>
+                            <h3>IoT (Internet of Things)</h3>
+                            <p>Building smart control loops, designing sensor architectures, and working with microcontrollers.</p>
+                        </div>
+                        <div class="domain-card glass">
+                            <div class="domain-icon"><i class="fas fa-cubes"></i></div>
+                            <h3>Blockchain</h3>
+                            <p>Exploring decentralization, cryptography, and writing secure smart contract structures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-title"><span class="number">02.</span> Professional Skills</h2>
+                <div class="skills-grid">
+                    <!-- Programming -->
+                    <div class="skill-category glass">
+                        <h3><i class="fas fa-code category-icon"></i> Programming</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Java</span><span>85%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="85%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Python</span><span>80%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="80%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>C</span><span>75%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="75%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>HTML / CSS</span><span>90%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="90%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>JavaScript</span><span>80%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cybersecurity -->
+                    <div class="skill-category glass">
+                        <h3><i class="fas fa-user-shield category-icon"></i> Cybersecurity</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Network Security</span><span>80%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="80%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Ethical Hacking Fundamentals</span><span>75%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="75%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Security Awareness</span><span>90%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="90%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Linux Administration</span><span>75%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="75%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Git & GitHub Security</span><span>85%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="85%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IoT -->
+                    <div class="skill-category glass">
+                        <h3><i class="fas fa-network-wired category-icon"></i> IoT & Hardware</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Arduino Programming</span><span>85%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="85%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>Sensor Integration</span><span>80%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="80%"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info"><span>IoT Architectures</span><span>75%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="75%"></div></div>
+                            </div>
+                        </div>
+                        <h3 class="margin-top"><i class="fas fa-database category-icon"></i> Database</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info"><span>MySQL</span><span>80%</span></div>
+                                <div class="skill-progress"><div class="progress-fill" data-width="80%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="skill-category glass">
+                        <h3><i class="fas fa-toolbox category-icon"></i> Tools & Design</h3>
+                        <div class="tools-grid">
+                            <div class="tool-badge"><i class="fab fa-git-alt"></i> Git</div>
+                            <div class="tool-badge"><i class="fab fa-github"></i> GitHub</div>
+                            <div class="tool-badge"><i class="fas fa-terminal"></i> VS Code</div>
+                            <div class="tool-badge"><i class="fas fa-palette"></i> Canva</div>
+                            <div class="tool-badge"><i class="fab fa-figma"></i> Figma</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-title"><span class="number">03.</span> Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card glass">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="cyber-tech-stack">
+                                    <span class="tech-tag">Blockchain</span>
+                                    <span class="tech-tag">Solidity</span>
+                                    <span class="tech-tag">Ethereum</span>
+                                    <span class="tech-tag">Web3.js</span>
+                                </div>
+                            </div>
+                            <div class="project-placeholder-bg">
+                                <i class="fas fa-cubes-stacked project-bg-icon"></i>
+                                <span class="project-bg-text">BLOCKCHAIN SYSTEM</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Blockchain-Based Supply Chain Tracking</h3>
+                            <p class="project-desc">
+                                A decentralized supply chain application ensuring transparent, immutable, and real-time tracking of goods. Implemented smart contracts to automate vendor verifications and prevent counter-fitting.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/shiyara-s" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                                <a href="#" class="project-link demo-link" aria-label="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="cyber-tech-stack">
+                                    <span class="tech-tag">IoT</span>
+                                    <span class="tech-tag">Arduino</span>
+                                    <span class="tech-tag">C++</span>
+                                    <span class="tech-tag">Sensors</span>
+                                </div>
+                            </div>
+                            <div class="project-placeholder-bg">
+                                <i class="fas fa-house-laptop project-bg-icon"></i>
+                                <span class="project-bg-text">IOT CONTROL HUB</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3 class="project-title">Smart Fan & Lighting System</h3>
+                            <p class="project-desc">
+                                An integrated smart automation node featuring temperature-adaptive control loops, voice commands, and safety environment monitoring. Detects gas leaks and sounds local emergency alerts automatically.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://github.com/shiyara-s" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub Repository">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                                <a href="#" class="project-link demo-link" aria-label="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section (Education & Certifications) -->
+        <section id="timeline" class="timeline-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-title"><span class="number">04.</span> Timeline & Milestones</h2>
+                
+                <div class="timeline-tabs">
+                    <button class="tab-btn active" data-tab="education">Education</button>
+                    <button class="tab-btn" data-tab="certifications">Certifications</button>
+                </div>
+
+                <div class="timeline-content">
+                    <!-- Education Timeline -->
+                    <div id="education" class="timeline-container active">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023 - 2027</div>
+                            <div class="timeline-card glass">
+                                <h3>B.Tech Computer Science Engineering</h3>
+                                <h4>Specialization: IoT, Cybersecurity & Blockchain Technology</h4>
+                                <p class="institution">Kerala, India</p>
+                                <div class="timeline-stats">
+                                    <span class="stat-badge"><i class="fas fa-graduation-cap"></i> CGPA: 8.7</span>
+                                    <span class="stat-badge"><i class="fas fa-calendar-alt"></i> Expected Graduation: 2027</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications Grid -->
+                    <div id="certifications" class="timeline-container">
+                        <div class="certs-grid">
+                            <!-- Cert 1 -->
+                            <div class="cert-card glass">
+                                <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                                <div class="cert-details">
+                                    <h3>Infosys Springboard Certificates</h3>
+                                    <p class="issuer">Infosys</p>
+                                    <p class="cert-date">Issued: 2025</p>
+                                    <a href="#" class="btn-cert"><i class="fas fa-eye"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <!-- Cert 2 -->
+                            <div class="cert-card glass">
+                                <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                                <div class="cert-details">
+                                    <h3>Cisco Networking Academy</h3>
+                                    <p class="issuer">Cisco Systems</p>
+                                    <p class="cert-date">Issued: 2025</p>
+                                    <a href="#" class="btn-cert"><i class="fas fa-eye"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <!-- Cert 3 -->
+                            <div class="cert-card glass">
+                                <div class="cert-icon"><i class="fas fa-school"></i></div>
+                                <div class="cert-details">
+                                    <h3>NPTEL Certifications</h3>
+                                    <p class="issuer">Ministry of Education, India</p>
+                                    <p class="cert-date">Issued: 2024</p>
+                                    <a href="#" class="btn-cert"><i class="fas fa-eye"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <!-- Cert 4 -->
+                            <div class="cert-card glass">
+                                <div class="cert-icon"><i class="fab fa-ibm"></i></div>
+                                <div class="cert-details">
+                                    <h3>IBM SkillsBuild Certifications</h3>
+                                    <p class="issuer">IBM</p>
+                                    <p class="cert-date">Issued: 2024</p>
+                                    <a href="#" class="btn-cert"><i class="fas fa-eye"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <!-- Cert 5 -->
+                            <div class="cert-card glass">
+                                <div class="cert-icon"><i class="fab fa-google"></i></div>
+                                <div class="cert-details">
+                                    <h3>Google Career Courses</h3>
+                                    <p class="issuer">Google</p>
+                                    <p class="cert-date">Issued: 2024</p>
+                                    <a href="#" class="btn-cert"><i class="fas fa-eye"></i> View Certificate</a>
+                                </div>
+                            </div>
+                            <!-- Cert 6 -->
+                            <div class="cert-card glass">
+                                <div class="cert-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="cert-details">
+                                    <h3>Coursera Certifications</h3>
+                                    <p class="issuer">Coursera Partner Institutions</p>
+                                    <p class="cert-date">Issued: 2024</p>
+                                    <a href="#" class="btn-cert"><i class="fas fa-eye"></i> View Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Integration Section -->
+        <section id="github" class="github-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-title"><span class="number">05.</span> GitHub Overview</h2>
+                <div class="github-container glass">
+                    <div class="github-header">
+                        <div class="github-profile-brief">
+                            <i class="fab fa-github github-logo"></i>
+                            <div>
+                                <h3>@shiyara-s</h3>
+                                <p>B.Tech Computer Science Engineering Student</p>
+                            </div>
+                        </div>
+                        <a href="https://github.com/shiyara-s" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            Follow on GitHub
+                        </a>
+                    </div>
+                    <div class="github-stats-grid">
+                        <div class="git-stat-card">
+                            <span class="stat-num" id="git-repos">12</span>
+                            <span class="stat-lbl">Repositories</span>
+                        </div>
+                        <div class="git-stat-card">
+                            <span class="stat-num" id="git-commits">180+</span>
+                            <span class="stat-lbl">Contributions (YTD)</span>
+                        </div>
+                        <div class="git-stat-card">
+                            <span class="stat-num" id="git-stars">8</span>
+                            <span class="stat-lbl">Stars Received</span>
+                        </div>
+                        <div class="git-stat-card">
+                            <span class="stat-num" id="git-followers">24</span>
+                            <span class="stat-lbl">Followers</span>
+                        </div>
+                    </div>
+                    <div class="github-calendar">
+                        <h4>Contribution Grid (Simulated Activity)</h4>
+                        <div class="contrib-grid-wrapper">
+                            <!-- Visual mock of contribution graph squares -->
+                            <div class="contrib-grid" id="contrib-grid"></div>
+                        </div>
+                        <div class="calendar-legend">
+                            <span>Less</span>
+                            <span class="legend-color color-0"></span>
+                            <span class="legend-color color-1"></span>
+                            <span class="legend-color color-2"></span>
+                            <span class="legend-color color-3"></span>
+                            <span class="legend-color color-4"></span>
+                            <span>More</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section scroll-reveal">
+            <div class="container">
+                <h2 class="section-title"><span class="number">06.</span> Get In Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Connect with Me</h3>
+                        <p>Feel free to reach out for internship opportunities, project collaborations, or technical discussions!</p>
+                        
+                        <div class="info-list">
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:shiyaras2005@gmail.com">shiyaras2005@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <h4>Phone</h4>
+                                    <p><a href="tel:+918156891395">+91 81568 91395</a></p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fab fa-linkedin-in"></i></div>
+                                <div>
+                                    <h4>LinkedIn</h4>
+                                    <p><a href="https://linkedin.com/in/shiyara-s-b4b66929b" target="_blank" rel="noopener noreferrer">linkedin.com/in/shiyara-s-b4b66929b</a></p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fab fa-github"></i></div>
+                                <div>
+                                    <h4>GitHub</h4>
+                                    <p><a href="https://github.com/shiyara-s" target="_blank" rel="noopener noreferrer">github.com/shiyara-s</a></p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <h4>Location</h4>
+                                    <p>Kerala, India</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container glass">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                            </div>
+                            <!-- Cybersecurity Sum Captcha -->
+                            <div class="form-group security-captcha">
+                                <label for="captcha">Security Check: <span id="captcha-question"></span></label>
+                                <input type="number" id="captcha" name="captcha" required placeholder="Answer">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            <div id="form-feedback" class="form-feedback hidden"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Shiyara S. All Rights Reserved.</p>
+                <div class="visitor-counter">
+                    <i class="fas fa-eye"></i> Profile Visits: <span id="visitor-count" class="counter-num">1</span>
+                </div>
+            </div>
+            <div class="footer-socials">
+                <a href="https://linkedin.com/in/shiyara-s-b4b66929b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/shiyara-s" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:shiyaras2005@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox/Modal for Certificates -->
+    <div id="cert-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content-wrapper glass">
+            <div class="modal-header">
+                <h3 id="modal-cert-title">Certificate Name</h3>
+                <p id="modal-cert-issuer">Issuer</p>
+            </div>
+            <div class="modal-body">
+                <div class="cert-mock-view">
+                    <i class="fas fa-award cert-seal"></i>
+                    <p class="cert-verify-text">Verifiable Credential Registered</p>
+                    <div class="cert-hash" id="modal-cert-hash">HASH: SHA256-4AC5...</div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" id="modal-verify-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Verify Credential
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
