@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Let the progress bar animation finish, then fade out
             setTimeout(() => {
                 loader.classList.add('fade-out');
-            }, 2200);
+            }, 1200);
         });
 
         // Safety fallback: Hide loader after 4 seconds anyway if load event doesn't fire
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 4. Typing Effect in Hero ---
     const typingElement = document.getElementById('typing-effect');
-    const roles = ["Cybersecurity Analyst", "Security Engineer", "IoT Specialist", "Blockchain Developer"];
+    const roles = ["Cybersecurity Analyst", "IoT Specialist", "Blockchain Developer", "Full-Stack Web Developer"];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -405,8 +405,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
@@ -416,6 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Validate Captcha
             if (userAnswer !== captchaAnswer) {
+                e.preventDefault(); // Stop form submission only if validation fails
                 formFeedback.classList.add('error');
                 formFeedback.textContent = "Security validation failed. Please solve the calculation again.";
                 formFeedback.classList.remove('hidden');
@@ -424,19 +423,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Mock success submission logic
-            formFeedback.classList.add('success');
-            formFeedback.textContent = `Access granted. Thank you, ${name}! Your transmission has been securely sent.`;
-            formFeedback.classList.remove('hidden');
-
-            // Reset form
-            contactForm.reset();
-            generateCaptcha();
-
-            // Auto fade success message after 5 seconds
-            setTimeout(() => {
-                formFeedback.classList.add('hidden');
-            }, 6000);
+            // Captcha passed! Change submit button text to sending state
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Transmitting...';
+            // Do not call e.preventDefault() or disable button here to allow native form submission
         });
     }
 
@@ -447,35 +437,98 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewCertButtons = document.querySelectorAll('.btn-cert');
 
     const certData = {
-        'Infosys Springboard Certificates': {
-            issuer: 'Infosys Springboard',
-            hash: 'SHA256-5F2A8D9B...6C4E',
-            verifyUrl: 'https://infosysspringboard.onwingspan.com/'
+        'AWS Certified Developer – Associate': {
+            issuer: 'Infosys',
+            hash: 'SHA256-AW5C-7D9B-F23A-8C1E-6C4E',
+            verifyUrl: 'assets/aws_certified_developer.png',
+            images: ['assets/aws_certified_developer.png'],
+            modules: [
+                'AWS Core Services (EC2, S3, RDS, DynamoDB, Lambda, API Gateway)',
+                'Cloud App Security, Deployment, and Monitoring',
+                'Serverless Application Design & Microservices'
+            ]
         },
-        'Cisco Networking Academy': {
-            issuer: 'Cisco Networking Academy',
-            hash: 'SHA256-D7E3A9C8...1F2B',
-            verifyUrl: 'https://www.netacad.com/'
+        'Microsoft Security, Identity & Compliance': {
+            issuer: 'Microsoft (Satya Nadella)',
+            hash: 'SHA256-MS7S-9F5C-B2D8-4E3A-9E5F',
+            verifyUrl: 'assets/microsoft_security_1.png',
+            images: [
+                'assets/microsoft_security_1.png',
+                'assets/microsoft_security_2.png',
+                'assets/microsoft_security_3.png',
+                'assets/microsoft_security_4.png',
+                'assets/microsoft_security_5.png'
+            ],
+            modules: [
+                'Describe core infrastructure security services in Azure',
+                'Describe security capabilities of Microsoft Sentinel',
+                'Describe security management capabilities in Azure',
+                'Describe threat protection with Microsoft Defender XDR',
+                'Describe access management & authentication capabilities of Microsoft Entra ID',
+                'Describe function & identity types of Microsoft Entra ID',
+                'Describe Microsoft Security Copilot & AI Security Concepts',
+                'Describe identity protection and governance capabilities of Microsoft Entra',
+                'Describe data security, governance, and compliance solutions of Microsoft Purview',
+                'Describe Microsoft\'s Service Trust portal and privacy capabilities',
+                'Introduction to generative AI security concepts'
+            ]
         },
-        'NPTEL Certifications': {
-            issuer: 'NPTEL (IIT Madras / IISc)',
-            hash: 'SHA256-8A3B4C9D...9E5F',
-            verifyUrl: 'https://nptel.ac.in/'
+        'IIT Bombay Spoken Tutorials': {
+            issuer: 'IIT Bombay (Prof. Kannan M Moudgalya)',
+            hash: 'SHA256-DK9R-6C5B-4A3D-1F0E-8E7F',
+            verifyUrl: 'assets/iitb_docker.png',
+            images: [
+                'assets/iitb_docker.png',
+                'assets/iitb_arduino.png',
+                'assets/iitb_latex.png'
+            ],
+            modules: [
+                'Docker Training (Containers, Networking, Volumes, Compose & Registry)',
+                'Arduino Training (IoT Architectures, Sensors, Analog & Digital Interfacing)',
+                'Java Training (OOP Concepts, Multi-threading, File handling & SQL connection)',
+                'LaTeX Training (Technical typesetting, Mathematical formatting, Document styles)'
+            ]
         },
-        'IBM SkillsBuild Certifications': {
-            issuer: 'IBM SkillsBuild',
-            hash: 'SHA256-3F8A7D6C...5B4A',
-            verifyUrl: 'https://skillsbuild.org/'
+        'Rapid Development for AI Services': {
+            issuer: 'IBM (Jagadisha Bhat)',
+            hash: 'SHA256-IB9M-4D3C-2A5F-8E7C-5B4A',
+            verifyUrl: 'assets/ibm_ai_services.png',
+            images: ['assets/ibm_ai_services.png'],
+            modules: [
+                'AI Application Architecture and Integration',
+                'IBM Cloud AI tools & Software Services',
+                'Model Integration & API Development'
+            ]
         },
-        'Google Career Courses': {
-            issuer: 'Google (via Coursera/Grow with Google)',
-            hash: 'SHA256-9B5A4D3C...1F0E',
-            verifyUrl: 'https://grow.google/'
+        'C++ & C# Development Series': {
+            issuer: 'LinkedIn Learning',
+            hash: 'SHA256-AZ5F-8E4B-A9D7-3C2B-1F2B',
+            verifyUrl: 'assets/linkedin_cpp_csharp.pdf',
+            modules: [
+                'C# Essential Training 1 & 2 (Types, Control Flow, Collections, LINQ)',
+                'C# Interfaces, Generics, Delegates, Events, and Lambdas',
+                'C# Algorithms and Object Oriented Design Patterns (Part 1 & 2)',
+                'C++ Getting Started & C++ Templates and the STL',
+                'C++ Best Practices for Developers & Code Clinic: C++',
+                'Introducing Functional Programming in C++',
+                'Web Servers and APIs using C++'
+            ]
         },
-        'Coursera Certifications': {
-            issuer: 'Coursera Partner Universities',
-            hash: 'SHA256-6C5B4A3D...8E7F',
-            verifyUrl: 'https://www.coursera.org/'
+        'Coursera Professional Development': {
+            issuer: 'Coursera Partner Programs',
+            hash: 'SHA256-CR6C-5B4A-3D1F-0E8E-7F8A',
+            verifyUrl: 'assets/coursera_wordpress.png',
+            images: [
+                'assets/coursera_wordpress.png',
+                'assets/coursera_excel_pm.png',
+                'assets/coursera_excel_data.png'
+            ],
+            modules: [
+                'Build a free website with WordPress',
+                'Create a Project Management Tracker using Microsoft Excel',
+                'Getting Started with Microsoft Excel',
+                'Introduction to Data Analysis using Microsoft Excel'
+            ]
         }
     };
 
@@ -487,7 +540,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const details = certData[certTitle] || {
                 issuer: 'External Issuer',
                 hash: 'SHA256-GENERIC...CREDENTIAL',
-                verifyUrl: '#'
+                verifyUrl: '#',
+                modules: []
             };
 
             // Set modal values
@@ -495,6 +549,101 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('modal-cert-issuer').textContent = `Issued by ${details.issuer}`;
             document.getElementById('modal-cert-hash').textContent = `VERIFIED HASH: ${details.hash}`;
             document.getElementById('modal-verify-link').setAttribute('href', details.verifyUrl);
+
+            // Populate modules list
+            const modulesList = document.getElementById('modal-cert-modules');
+            if (modulesList) {
+                modulesList.innerHTML = '';
+                if (details.modules && details.modules.length > 0) {
+                    details.modules.forEach(mod => {
+                        const li = document.createElement('li');
+                        li.textContent = mod;
+                        modulesList.appendChild(li);
+                    });
+                }
+            }
+
+            // Image Carousel / Fallback Handling
+            const viewerContainer = document.getElementById('modal-cert-viewer');
+            const fallbackContainer = document.getElementById('modal-cert-fallback');
+
+            if (details.images && details.images.length > 0) {
+                fallbackContainer.classList.add('hidden');
+                viewerContainer.classList.remove('hidden');
+
+                let currentImageIndex = 0;
+                const images = details.images;
+
+                const certImg = document.getElementById('modal-cert-img');
+                certImg.setAttribute('src', images[0]);
+
+                const prevBtn = document.getElementById('modal-prev-btn');
+                const nextBtn = document.getElementById('modal-next-btn');
+                const dotsContainer = document.getElementById('modal-carousel-dots');
+
+                dotsContainer.innerHTML = '';
+
+                function updateCarouselImage() {
+                    certImg.style.opacity = '0.3';
+                    setTimeout(() => {
+                        certImg.setAttribute('src', images[currentImageIndex]);
+                        certImg.style.opacity = '1';
+                    }, 150);
+
+                    // Update dot indicators
+                    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+                    dots.forEach((dot, index) => {
+                        if (index === currentImageIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+
+                    // Update verification link to current slide
+                    document.getElementById('modal-verify-link').setAttribute('href', images[currentImageIndex]);
+                }
+
+                if (images.length > 1) {
+                    prevBtn.classList.remove('hidden');
+                    nextBtn.classList.remove('hidden');
+
+                    // Create dots
+                    images.forEach((_, idx) => {
+                        const dot = document.createElement('div');
+                        dot.classList.add('carousel-dot');
+                        if (idx === 0) dot.classList.add('active');
+                        dot.addEventListener('click', () => {
+                            currentImageIndex = idx;
+                            updateCarouselImage();
+                        });
+                        dotsContainer.appendChild(dot);
+                    });
+
+                    // Reset button event listeners via cloning to avoid duplication
+                    const newPrevBtn = prevBtn.cloneNode(true);
+                    const newNextBtn = nextBtn.cloneNode(true);
+
+                    prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+                    nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+
+                    newPrevBtn.addEventListener('click', () => {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        updateCarouselImage();
+                    });
+
+                    newNextBtn.addEventListener('click', () => {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        updateCarouselImage();
+                    });
+                } else {
+                    prevBtn.classList.add('hidden');
+                    nextBtn.classList.add('hidden');
+                }
+            } else {
+                viewerContainer.classList.add('hidden');
+                fallbackContainer.classList.remove('hidden');
+            }
 
             // Open Modal
             modal.classList.add('active');
