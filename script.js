@@ -405,6 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Stop native page reload
+
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
@@ -414,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Validate Captcha
             if (userAnswer !== captchaAnswer) {
-                e.preventDefault(); // Stop form submission only if validation fails
                 formFeedback.classList.add('error');
                 formFeedback.textContent = "Security validation failed. Please solve the calculation again.";
                 formFeedback.classList.remove('hidden');
@@ -423,10 +424,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Captcha passed! Change submit button text to sending state
+            // Change submit button text to sending state
             const submitBtn = contactForm.querySelector('.btn-submit');
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Transmitting...';
-            // Do not call e.preventDefault() or disable button here to allow native form submission
+
+            const accessKey = document.getElementById('web3forms-key').value;
+
+            // Submit using fetch to Web3Forms API
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    access_key: accessKey,
+                    name: name,
+                    email: email,
+                    message: message,
+                    subject: `New Portfolio Message from ${name}`
+                })
+            })
+            .then(async (response) => {
+                const data = await response.json();
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+
+                if (response.status === 200) {
+                    formFeedback.classList.add('success');
+                    formFeedback.textContent = `Transmission successful! Your message has been sent to Shiyara S.`;
+                    contactForm.reset();
+                } else {
+                    formFeedback.classList.add('error');
+                    formFeedback.textContent = data.message || "Oops! Something went wrong. Check if your Access Key is correct.";
+                }
+                formFeedback.classList.remove('hidden');
+                generateCaptcha();
+            })
+            .catch(error => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+                formFeedback.classList.add('error');
+                formFeedback.textContent = "Oops! Connection error. Please verify your internet and try again.";
+                formFeedback.classList.remove('hidden');
+                generateCaptcha();
+            });
         });
     }
 
